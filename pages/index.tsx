@@ -1,10 +1,14 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
+import Image, {ImageLoader} from 'next/image'
 import styles from '../styles/Home.module.css'
 import {Spring, animated, easings} from 'react-spring'
-import {useState} from "react";
 import Link from "next/link";
+import {ImageLoaderProps} from "next/dist/client/image";
+
+const imgLoader:ImageLoader = ({src, width}: ImageLoaderProps) => {
+    return `https://mcanvar.github.io/toonverse/${src}?w=${width}`
+}
 
 const Home: NextPage = () => {
 
@@ -39,7 +43,7 @@ const Home: NextPage = () => {
                     {s => (
                         <animated.div style={s}>
                             <Link href={'https://twitter.com/ToonverseClub'}>
-                                <Image alt={'Twitter'} src={'/logo-twitter.svg'} width={100} height={100} />
+                                <Image loader={imgLoader} alt={'Twitter'} src={'/logo-twitter.svg'} width={100} height={100} />
                             </Link>
                         </animated.div>
                     )}
@@ -58,7 +62,7 @@ const Home: NextPage = () => {
                     {s => (
                         <animated.div style={s}>
                             <Link href={'https://discord.gg/CAb8rcJB'}>
-                                <Image alt={'Discord'} src={'/logo-discord.svg'} width={100} height={100} />
+                                <Image loader={imgLoader} alt={'Discord'} src={'/logo-discord.svg'} width={100} height={100} />
                             </Link>
                         </animated.div>
                     )}
