@@ -18,18 +18,22 @@ const Home: NextPage = () => {
         </h1>
 
         <p className={styles.description}>
-          Get started by joining our community! Soon, we will be fully available.
+          Get started by joining our community! Soon, we will be available.
         </p>
 
         <div className={styles.grid}>
-          ...
+            <a href={'https://twitter.com/ToonverseClub'} className={styles.card}>
+                <Image src={'/logo-twitter.svg'} width={100} height={100} />
+            </a>
+            <a href={'https://discord.gg/CAb8rcJB'} className={styles.card}>
+                <Image src={'/logo-discord.svg'} width={100} height={100} />
+            </a>
         </div>
       </main>
 
       <footer className={styles.footer}>
         <a
           href="/"
-          target="_blank"
           rel="noopener noreferrer"
         >
           Powered by{' '}
