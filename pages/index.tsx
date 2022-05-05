@@ -2,8 +2,11 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import {Spring, animated, easings} from 'react-spring'
+import {useState} from "react";
 
 const Home: NextPage = () => {
+
   return (
     <div className={styles.container}>
       <Head>
@@ -22,12 +25,42 @@ const Home: NextPage = () => {
         </p>
 
         <div className={styles.grid}>
-            <a href={'https://twitter.com/ToonverseClub'} className={styles.card}>
-                <Image src={'/logo-twitter.svg'} width={100} height={100} />
-            </a>
-            <a href={'https://discord.gg/CAb8rcJB'} className={styles.card}>
-                <Image src={'/logo-discord.svg'} width={100} height={100} />
-            </a>
+            <Spring
+                loop={{reverse: true}}
+                from={{ opacity: 1, rotateY: 0 }}
+                to={[
+                    { opacity: 0.7, rotateY: 25 },
+                    { opacity: 1, rotateY: 0 },
+                ]}
+                config={{duration: 2000, easing: easings.easeInOutQuart}}
+            >
+                {s => (
+                    <animated.div style={s}>
+                        <a href={'https://twitter.com/ToonverseClub'} className={styles.card}>
+                            <Image src={'/logo-twitter.svg'} width={100} height={100} />
+                        </a>
+                    </animated.div>
+                )}
+            </Spring>
+            <Spring
+                loop={{reverse: true}}
+                from={{ opacity: 0.7, rotateY: 25 }}
+                to={[
+                    { opacity: 1, rotateY: 0 },
+                    { opacity: 0.7, rotateY: 25 },
+                ]}
+                config={{duration: 2000, easing: easings.easeInOutQuart}}
+            >
+                {s => (
+                    <animated.div style={s}>
+                        <a href={'https://discord.gg/CAb8rcJB'} className={styles.card}>
+                            <Image src={'/logo-discord.svg'} width={100} height={100} />
+                        </a>
+                    </animated.div>
+                )}
+            </Spring>
+
+
         </div>
       </main>
 
