@@ -12,6 +12,8 @@ const imgLoader: ImageLoader = ({src, width}: ImageLoaderProps) => {
 
 const Home: NextPage = () => {
 
+    console.log(styles);
+
     return (
         <div className={styles.container}>
             <Head>
@@ -20,7 +22,7 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
 
-            <main className={styles.main}>
+            <main className={styles.main + ' bg-gray-100'}>
                 <h1 className={styles.title}>
                     Toon<Link title="Toonverse NFT" href="/">verse</Link>
                 </h1>
