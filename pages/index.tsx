@@ -7,13 +7,13 @@ import Link from "next/link";
 import {ImageLoaderProps} from "next/dist/client/image";
 
 const imgLoader: ImageLoader = ({src, width}: ImageLoaderProps) => {
-    return `https://mcanvar.github.io/toonverse/${src}?w=${width}`
+    if (process.env.NODE_ENV === 'development')
+        return `/assets/${src}?w=${width}`
+
+    return `https://mcanvar.github.io/toonverse/assets/${src}?w=${width}`
 }
 
 const Home: NextPage = () => {
-
-    console.log(styles);
-
     return (
         <div className={styles.container}>
             <Head>
@@ -22,16 +22,16 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
 
-            <main className={styles.main + ' bg-gray-100'}>
-                <h1 className={styles.title}>
-                    Toon<Link title="Toonverse NFT" href="/">verse</Link>
-                </h1>
+            <main className="min-h-screen grid place-content-center flex-col p-24 relative">
+                <div className="absolute left-0 top-48 w-full h-1/5">
+                    <Image loader={imgLoader} alt={'Toonverse Logo'} src={'/logo.png'} layout="fill" />
+                </div>
 
-                <p className={styles.description}>
+                <p className="">
                     Get started by joining our community! Soon, we will be available.
                 </p>
 
-                <div className={styles.grid}>
+                <div className={styles.grid + ' '}>
                     <div className={styles.card}>
                         <Link href={'https://twitter.com/ToonverseClub'}>
                             <a>
@@ -78,10 +78,6 @@ const Home: NextPage = () => {
                     </div>
                 </div>
             </main>
-
-            <footer className={styles.footer}>
-                Powered by{' '}<h5 className={styles.title}>Toon<span>verse</span></h5>
-            </footer>
         </div>
     )
 }
