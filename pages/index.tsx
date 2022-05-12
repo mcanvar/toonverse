@@ -22,12 +22,12 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
 
-            <main className="min-h-screen grid place-content-center flex-col p-24 relative">
+            <main className="min-h-screen grid place-content-center flex-col py-36 relative">
                 <div className="absolute left-0 top-48 w-full h-1/5">
                     <Image loader={imgLoader} alt={'Toonverse Logo'} src={'/logo.png'} layout="fill" />
                 </div>
 
-                <p className="">
+                <p className="mt-60">
                     Get started by joining our community! Soon, we will be available.
                 </p>
 
