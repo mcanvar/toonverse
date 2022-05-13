@@ -1,16 +1,9 @@
 import type {NextComponentType} from 'next'
-import Image, {ImageLoader} from 'next/image'
-import {ImageLoaderProps} from "next/dist/client/image";
+import Image from 'next/image'
 import {useEffect, useRef} from "react";
 import {animated, to, useSpring} from "react-spring";
 import {useGesture} from "react-use-gesture";
-
-const imgLoader: ImageLoader = ({src, width}: ImageLoaderProps) => {
-    if (process.env.NODE_ENV === 'development')
-        return `/assets/${src}?w=${width}`
-
-    return `https://mcanvar.github.io/toonverse/assets/${src}?w=${width}`
-}
+import imgLoader from "../utulities/imgLoader";
 
 const calcX = (y: number, ly: number) => -(y - ly - window.innerHeight / 2) / 20
 const calcY = (x: number, lx: number) => (x - lx - window.innerWidth / 2) / 20

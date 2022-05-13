@@ -1,18 +1,11 @@
 import type {NextPage} from 'next'
 import Head from 'next/head'
-import Image, {ImageLoader} from 'next/image'
+import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import {Spring, animated, easings} from 'react-spring'
 import Link from "next/link";
 import Logo from "../components/Logo";
-import {ImageLoaderProps} from "next/dist/client/image";
-
-const imgLoader: ImageLoader = ({src, width}: ImageLoaderProps) => {
-    if (process.env.NODE_ENV === 'development')
-        return `/assets/${src}?w=${width}`
-
-    return `https://mcanvar.github.io/toonverse/assets/${src}?w=${width}`
-}
+import imgLoader from "../utulities/imgLoader";
 
 const Home: NextPage = () => {
     return (
