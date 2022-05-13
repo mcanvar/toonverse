@@ -4,6 +4,7 @@ import Image, {ImageLoader} from 'next/image'
 import styles from '../styles/Home.module.css'
 import {Spring, animated, easings} from 'react-spring'
 import Link from "next/link";
+import Logo from "../components/Logo";
 import {ImageLoaderProps} from "next/dist/client/image";
 
 const imgLoader: ImageLoader = ({src, width}: ImageLoaderProps) => {
@@ -18,14 +19,12 @@ const Home: NextPage = () => {
         <div className={styles.container}>
             <Head>
                 <title>Toonverse NFT</title>
-                <meta name="description" content="Drop your favorite NFT collectibles!" />
+                <meta name="description" content="Drop your favorite NFT collectibles!"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
 
             <main className="min-h-screen grid place-content-center flex-col py-36 relative">
-                <div className="absolute left-0 top-48 w-full h-1/5">
-                    <Image loader={imgLoader} alt={'Toonverse Logo'} src={'/logo.png'} layout="fill" />
-                </div>
+                <Logo />
 
                 <p className="mt-60">
                     Get started by joining our community! Soon, we will be available.
