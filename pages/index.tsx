@@ -23,7 +23,7 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
 
-            <main className="min-h-screen grid place-content-center flex-col py-36 relative">
+            <main className="min-h-screen max-w-screen grid place-content-center flex-col py-36 relative">
                 <Logo />
 
                 <p className="mt-60">
